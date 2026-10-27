@@ -1,0 +1,20 @@
+# RealGuard — dependências para a AIBOX (Python 3.8.10, Linux ARM64).
+#
+#   python3 -m venv .venv
+#   source .venv/bin/activate
+#   pip install -r requirements-aibox.txt
+#
+# Versões travadas: são as validadas na AIBOX (mesmo conjunto do EduVision).
+# Pydantic 2 não tem build pronta para Python 3.8 + ARM64 (exigiria compilar
+# com Rust, sem toolchain), por isso o FastAPI fica numa versão que usa
+# Pydantic 1. Não atualize sem testar no hardware.
+
+insightface==1.0.1
+onnxruntime==1.16.3
+opencv-python-headless==5.0.0.93
+numpy==1.24.4
+
+fastapi==0.95.2
+pydantic<2
+uvicorn
+python-multipart

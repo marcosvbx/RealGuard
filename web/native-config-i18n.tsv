@@ -1,0 +1,39 @@
+Controle de acesso	Access control	Control de acceso	Contrôle d’accès	Zugangskontrolle	التحكم في الدخول	प्रवेश नियंत्रण	门禁管理	入退室管理	Контроль доступа
+Modo de execução	Run mode	Modo de ejecución	Mode de fonctionnement	Betriebsmodus	وضع التشغيل	संचालन मोड	运行模式	実行モード	Режим работы
+RealGuard	RealGuard	RealGuard	RealGuard	RealGuard	RealGuard	RealGuard	RealGuard	RealGuard	RealGuard
+Homologação	Evaluation	Homologación	Validation	Abnahme	التقييم	सत्यापन	验证	検証	Проверка
+Fonte de vídeo	Video source	Fuente de vídeo	Source vidéo	Videoquelle	مصدر الفيديو	वीडियो स्रोत	视频来源	映像ソース	Источник видео
+Webcam do computador	Computer webcam	Cámara web del equipo	Webcam de l’ordinateur	Webcam des Computers	كاميرا الكمبيوتر	कंप्यूटर वेबकैम	电脑网络摄像头	パソコンのウェブカメラ	Веб-камера компьютера
+Câmera IP (RTSP)	IP camera (RTSP)	Cámara IP (RTSP)	Caméra IP (RTSP)	IP-Kamera (RTSP)	كاميرا IP ‏(RTSP)	IP कैमरा (RTSP)	IP 摄像头 (RTSP)	IP カメラ (RTSP)	IP-камера (RTSP)
+Automática · IP ou webcam	Automatic · IP or webcam	Automática · IP o webcam	Automatique · IP ou webcam	Automatisch · IP oder Webcam	تلقائي · كاميرا IP أو ويب	स्वचालित · IP या वेबकैम	自动 · IP 或网络摄像头	自動 · IP またはウェブカメラ	Автоматически · IP или веб-камера
+Índice da webcam	Webcam index	Índice de webcam	Indice de la webcam	Webcam-Index	رقم كاميرا الويب	वेबकैम सूचकांक	网络摄像头编号	ウェブカメラ番号	Номер веб-камеры
+IP da câmera	Camera IP	IP de la cámara	IP de la caméra	Kamera-IP	عنوان IP للكاميرا	कैमरा IP	摄像头 IP	カメラ IP	IP-адрес камеры
+Porta RTSP	RTSP port	Puerto RTSP	Port RTSP	RTSP-Port	منفذ RTSP	RTSP पोर्ट	RTSP 端口	RTSP ポート	Порт RTSP
+Caminho RTSP	RTSP path	Ruta RTSP	Chemin RTSP	RTSP-Pfad	مسار RTSP	RTSP पथ	RTSP 路径	RTSP パス	Путь RTSP
+Usuário da câmera	Camera username	Usuario de la cámara	Utilisateur de la caméra	Kamera-Benutzername	اسم مستخدم الكاميرا	कैमरा उपयोगकर्ता	摄像头用户名	カメラのユーザー名	Имя пользователя камеры
+Senha da câmera	Camera password	Contraseña de la cámara	Mot de passe de la caméra	Kamera-Passwort	كلمة مرور الكاميرا	कैमरा पासवर्ड	摄像头密码	カメラのパスワード	Пароль камеры
+Deixe vazio para manter a atual	Leave blank to keep the current one	Deje en blanco para conservar la actual	Laissez vide pour conserver la valeur actuelle	Leer lassen, um den aktuellen Wert zu behalten	اتركه فارغًا للاحتفاظ بالحالي	मौजूदा मान रखने के लिए खाली छोड़ें	留空以保留当前值	現在の値を維持する場合は空欄	Оставьте пустым, чтобы сохранить текущее значение
+Testar câmera	Test camera	Probar cámara	Tester la caméra	Kamera testen	اختبار الكاميرا	कैमरा जाँचें	测试摄像头	カメラをテスト	Проверить камеру
+Conexão com a internet	Internet connection	Conexión a internet	Connexion Internet	Internetverbindung	الاتصال بالإنترنت	इंटरनेट कनेक्शन	互联网连接	インターネット接続	Подключение к интернету
+Direta · sem proxy	Direct · no proxy	Directa · sin proxy	Directe · sans proxy	Direkt · ohne Proxy	مباشر · دون وسيط	सीधा · बिना प्रॉक्सी	直连 · 不使用代理	直接接続 · プロキシなし	Напрямую · без прокси
+Proxy do notebook mestre	Host laptop proxy	Proxy del portátil principal	Proxy de l’ordinateur principal	Proxy des Hauptlaptops	وكيل الحاسوب الرئيسي	मुख्य लैपटॉप प्रॉक्सी	主笔记本代理	メインノート PC のプロキシ	Прокси основного ноутбука
+IP do proxy	Proxy IP	IP del proxy	IP du proxy	Proxy-IP	عنوان IP للوكيل	प्रॉक्सी IP	代理 IP	プロキシ IP	IP прокси
+Porta do proxy	Proxy port	Puerto del proxy	Port du proxy	Proxy-Port	منفذ الوكيل	प्रॉक्सी पोर्ट	代理端口	プロキシポート	Порт прокси
+Usuário do proxy	Proxy username	Usuario del proxy	Utilisateur du proxy	Proxy-Benutzername	اسم مستخدم الوكيل	प्रॉक्सी उपयोगकर्ता	代理用户名	プロキシのユーザー名	Пользователь прокси
+Senha do proxy	Proxy password	Contraseña del proxy	Mot de passe du proxy	Proxy-Passwort	كلمة مرور الوكيل	प्रॉक्सी पासवर्ड	代理密码	プロキシのパスワード	Пароль прокси
+Testar internet	Test internet	Probar internet	Tester Internet	Internet testen	اختبار الإنترنت	इंटरनेट जाँचें	测试互联网	インターネットをテスト	Проверить интернет
+Primeiro administrador	First administrator	Primer administrador	Premier administrateur	Erster Administrator	المسؤول الأول	पहला प्रशासक	首位管理员	最初の管理者	Первый администратор
+Usuário	Username	Usuario	Utilisateur	Benutzername	اسم المستخدم	उपयोगकर्ता	用户名	ユーザー名	Имя пользователя
+Nome	Name	Nombre	Nom	Name	الاسم	नाम	姓名	名前	Имя
+Senha	Password	Contraseña	Mot de passe	Passwort	كلمة المرور	पासवर्ड	密码	パスワード	Пароль
+Salvar e iniciar	Save and start	Guardar e iniciar	Enregistrer et démarrer	Speichern und starten	حفظ وتشغيل	सहेजें और शुरू करें	保存并启动	保存して起動	Сохранить и запустить
+Salvar e reiniciar	Save and restart	Guardar y reiniciar	Enregistrer et redémarrer	Speichern und neu starten	حفظ وإعادة التشغيل	सहेजें और पुनः शुरू करें	保存并重启	保存して再起動	Сохранить и перезапустить
+Carregando configurações…	Loading settings…	Cargando configuración…	Chargement des paramètres…	Einstellungen werden geladen…	جارٍ تحميل الإعدادات…	सेटिंग लोड हो रही हैं…	正在加载设置…	設定を読み込み中…	Загрузка настроек…
+Testando conexão…	Testing connection…	Probando conexión…	Test de la connexion…	Verbindung wird getestet…	جارٍ اختبار الاتصال…	कनेक्शन जाँचा जा रहा है…	正在测试连接…	接続をテスト中…	Проверка подключения…
+Salvando configurações…	Saving settings…	Guardando configuración…	Enregistrement des paramètres…	Einstellungen werden gespeichert…	جارٍ حفظ الإعدادات…	सेटिंग सहेजी जा रही हैं…	正在保存设置…	設定を保存中…	Сохранение настроек…
+Reiniciando o RealGuard…	Restarting RealGuard…	Reiniciando RealGuard…	Redémarrage de RealGuard…	RealGuard wird neu gestartet…	جارٍ إعادة تشغيل RealGuard…	RealGuard पुनः शुरू हो रहा है…	正在重启 RealGuard…	RealGuard を再起動中…	Перезапуск RealGuard…
+Iniciando o RealGuard…	Starting RealGuard…	Iniciando RealGuard…	Démarrage de RealGuard…	RealGuard wird gestartet…	جارٍ تشغيل RealGuard…	RealGuard शुरू हो रहा है…	正在启动 RealGuard…	RealGuard を起動中…	Запуск RealGuard…
+O RealGuard não iniciou. Consulte logs/console.log.	RealGuard did not start. See logs/console.log.	RealGuard no se inició. Consulte logs/console.log.	RealGuard n’a pas démarré. Consultez logs/console.log.	RealGuard wurde nicht gestartet. Siehe logs/console.log.	لم يبدأ RealGuard. راجع logs/console.log.	RealGuard शुरू नहीं हुआ। logs/console.log देखें।	RealGuard 未启动。请查看 logs/console.log。	RealGuard を起動できませんでした。logs/console.log を確認してください。	RealGuard не запустился. См. logs/console.log.
+Imagem recebida da câmera.	Image received from camera.	Imagen recibida de la cámara.	Image reçue de la caméra.	Bild von der Kamera empfangen.	تم استلام صورة من الكاميرا.	कैमरे से छवि प्राप्त हुई।	已收到摄像头图像。	カメラから画像を受信しました。	Изображение с камеры получено.
+Não foi possível ler a câmera.	Could not read the camera.	No se pudo leer la cámara.	Impossible de lire la caméra.	Kamera konnte nicht gelesen werden.	تعذرت قراءة الكاميرا.	कैमरा पढ़ा नहीं जा सका।	无法读取摄像头。	カメラの映像を読み取れませんでした。	Не удалось прочитать камеру.
+Internet disponível pelo proxy.	Internet is available through the proxy.	Internet disponible mediante el proxy.	Internet est accessible via le proxy.	Internet ist über den Proxy verfügbar.	الإنترنت متاح عبر الوكيل.	प्रॉक्सी के माध्यम से इंटरनेट उपलब्ध है।	可通过代理访问互联网。	プロキシ経由でインターネットに接続できます。	Интернет доступен через прокси.

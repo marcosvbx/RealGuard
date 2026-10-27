@@ -1,0 +1,20 @@
+# RealGuard — dependências para o PC (Windows/Linux de desenvolvimento).
+# Python moderno (3.10+), sem versões travadas: usa a mais recente de cada pacote.
+#
+#   py -m venv .venv
+#   .\.venv\Scripts\Activate.ps1
+#   pip install -r requirements.txt
+#
+# Para a AIBOX (Python 3.8, ARM64) use requirements-aibox.txt.
+
+opencv-python
+numpy
+onnxruntime
+insightface
+fastapi
+uvicorn
+python-multipart
+
+# Só para rodar a suíte de testes (pytest)
+pytest
+httpx

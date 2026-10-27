@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RealGuard · Entrar</title>
+<!-- Arquivo único e sem dependências externas: funciona na rede isolada da AIBOX. -->
+<style>
+@font-face{font-family:"Archivo";src:url(/fonts/archivo.woff2) format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url(/fonts/poppins-300.woff2) format("woff2");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url(/fonts/poppins-500.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url(/fonts/poppins-600.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Poppins";src:url(/fonts/poppins-700.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+/* paleta do guia de estilo: marinho como base, dourado só como acento (símbolo, slogan, botão principal, fios finos) */
+:root{color-scheme:dark;--bg:#071022;--surface:#0d1a30;--surface-2:#13223c;--line:rgba(160,190,240,.09);--line-2:rgba(160,190,240,.16);
+  --ink:#eef2f8;--ink-2:#b3bfd2;--muted:#7f8ca3;--accent:#3987e5;--accent-soft:rgba(57,135,229,.16);--bad:#d03b3b;--bad-soft:rgba(208,59,59,.14);
+  --warn:#fab219;--navy:#0b2447;--gold:#d6b25e;--gold-ink:#e3c57f;--gold-wash:rgba(214,178,94,.14);--radius:16px;--radius-sm:10px;
+  --ease:cubic-bezier(.2,.8,.2,1);--spring:cubic-bezier(.34,1.56,.64,1);
+  --brand:"Poppins",Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --font:"Archivo",Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 var(--font);-webkit-font-smoothing:antialiased;display:grid;place-items:center;padding:24px 16px;overflow-x:hidden}
+/* fundo: brilho marinho, grade sutil que some nas bordas */
+.bg{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+.bg::before{content:"";position:absolute;inset:-20%;background:radial-gradient(700px 420px at 50% 8%,rgba(57,135,229,.20),transparent 70%),radial-gradient(520px 320px at 50% 105%,rgba(214,178,94,.07),transparent 70%)}
+.bg::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(160,190,240,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(160,190,240,.05) 1px,transparent 1px);background-size:44px 44px;
+  -webkit-mask-image:radial-gradient(ellipse 60% 55% at 50% 40%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 60% 55% at 50% 40%,#000 20%,transparent 75%);animation:drift 30s linear infinite}
+@keyframes drift{to{background-position:44px 44px,44px 44px}}
+svg.i{width:18px;height:18px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.box{width:100%;max-width:400px}
+
+/* marca */
+.brand{display:flex;align-items:center;gap:14px;margin-bottom:26px;justify-content:center;animation:rise .6s var(--ease) both}
+.mark{width:40px;height:54px;display:grid;place-items:center;filter:drop-shadow(0 8px 14px rgba(0,0,0,.55))}
+.sym{width:40px;height:54px;display:block}
+.sym{overflow:visible}
+.sym .sh,.sym .sh-d{fill:none;stroke-width:12;stroke-linecap:round;stroke-linejoin:round}
+.sym .sh-d{stroke:#4f535a;transform:translate(3px,4px)}.sym .sh{stroke:url(#g-silver)}
+.sym .ps-d{fill:#8c6b2b;transform:translate(2.5px,3.5px)}.sym .ps{fill:url(#g-gold)}
+.wm{font-family:var(--brand);font-size:21px;line-height:1;letter-spacing:.06em;font-weight:700;white-space:nowrap}
+.wm span{font-weight:300}
+.tag{font-family:var(--brand);font-weight:500;letter-spacing:.2em;text-transform:uppercase;font-size:9.5px;color:var(--gold-ink);margin-top:7px}
+
+/* cartão */
+.card{position:relative;background:linear-gradient(180deg,rgba(19,34,60,.85),rgba(13,26,48,.92));border:1px solid var(--line-2);border-radius:var(--radius);padding:28px;
+  box-shadow:0 30px 60px -30px rgba(0,0,0,.85);backdrop-filter:blur(8px);animation:rise .7s .08s var(--ease) both}
+.card::before{content:"";position:absolute;left:28px;right:28px;top:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--gold) 70%,transparent);opacity:.75}
+h1{margin:0 0 4px;font-family:var(--brand);font-size:19px;font-weight:600;letter-spacing:-.01em}
+.sub{margin:0 0 22px;color:var(--muted);font-size:13.5px}
+.field{display:block;margin-bottom:16px;animation:rise .6s var(--ease) both}
+.field:nth-of-type(1){animation-delay:.18s}.field:nth-of-type(2){animation-delay:.24s}.field:nth-of-type(3){animation-delay:.3s}
+.field>span{display:block;font-size:12.5px;color:var(--ink-2);margin-bottom:7px;font-weight:550}
+.ctl{position:relative}
+.ctl>svg.i{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:17px;height:17px;stroke:var(--muted);transition:stroke .2s;pointer-events:none}
+.input{width:100%;height:46px;background:rgba(7,16,34,.75);border:1px solid var(--line-2);border-radius:var(--radius-sm);padding:0 14px 0 40px;outline:none;font:inherit;font-size:14.5px;color:inherit;transition:border-color .2s,box-shadow .2s,background .2s}
+.input.plain{padding-left:14px}
+.input:hover{border-color:rgba(160,190,240,.26)}
+.input:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);background:rgba(7,16,34,.95)}
+.ctl:focus-within>svg.i{stroke:#8fbcf2}
+.eye{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:34px;height:34px;border:0;border-radius:8px;background:none;color:var(--muted);cursor:pointer;display:grid;place-items:center;transition:color .2s,background .2s}
+.eye:hover{color:var(--ink);background:rgba(160,190,240,.08)}
+.eye svg{width:17px;height:17px}
+.has-eye .input{padding-right:44px}
+
+/* botão principal: dourado com texto marinho (guia: tema escuro) */
+.btn{position:relative;overflow:hidden;width:100%;height:48px;display:inline-flex;justify-content:center;align-items:center;gap:9px;border-radius:var(--radius-sm);border:1px solid var(--gold);
+  background:linear-gradient(180deg,#e0bf6f,var(--gold));color:var(--navy);cursor:pointer;font:inherit;font-family:var(--brand);font-size:15px;font-weight:600;letter-spacing:.01em;margin-top:6px;
+  box-shadow:0 10px 26px -14px rgba(214,178,94,.8),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .18s var(--ease),box-shadow .25s,filter .2s;animation:rise .6s .34s var(--ease) both}
+.btn svg{stroke:var(--navy);stroke-width:2.1;transition:transform .3s var(--spring)}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.45) 50%,transparent 65%);transform:translateX(-120%)}
+.btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 16px 34px -14px rgba(214,178,94,.95),inset 0 1px 0 rgba(255,255,255,.4)}
+.btn:hover:not(:disabled)::after{transition:transform .8s var(--ease);transform:translateX(120%)}
+.btn:hover:not(:disabled) svg{transform:translateY(-1px) rotate(-8deg)}
+.btn:active:not(:disabled){transform:scale(.98)}
+.btn:disabled{cursor:default;filter:saturate(.7) brightness(.9)}
+.btn .spin{display:none;width:18px;height:18px;border-radius:50%;border:2.2px solid rgba(11,36,71,.25);border-top-color:var(--navy);animation:spin .7s linear infinite}
+.btn.busy .spin{display:block}.btn.busy svg,.btn.busy .lbl{display:none}
+.btn.ok{background:linear-gradient(180deg,#e0bf6f,var(--gold))}
+.rpl{position:absolute;border-radius:50%;pointer-events:none;background:#fff;opacity:.35;transform:scale(0);animation:ripple .6s ease-out forwards}
+
+.msg{display:none;gap:10px;align-items:flex-start;padding:11px 13px;border-radius:var(--radius-sm);font-size:13px;margin-bottom:16px}
+.msg.on{display:flex;animation:rise .3s var(--ease)}
+.msg.bad{background:var(--bad-soft);color:#ffb7b7;border:1px solid rgba(208,59,59,.3)}.msg.bad svg{stroke:#ff7b7b}
+.msg.info{background:var(--accent-soft);color:var(--ink-2)}.msg.info svg{stroke:var(--accent)}
+.note{display:none;gap:10px;align-items:flex-start;margin-top:16px;padding:11px 14px;border-radius:var(--radius-sm);font-size:12.5px;color:var(--muted);background:rgba(13,26,48,.6);border:1px solid var(--line);animation:rise .6s .42s var(--ease) both}
+.note.on{display:flex}.note svg{stroke:var(--warn);width:16px;height:16px;margin-top:1px}
+code{font-family:ui-monospace,"JetBrains Mono",Menlo,Consolas,monospace;background:rgba(255,255,255,.06);padding:2px 6px;border-radius:5px;color:var(--ink);white-space:nowrap}
+.foot{margin-top:20px;text-align:center;color:var(--muted);font-size:12px;animation:fade .8s .5s both}
+.foot::before{content:"";display:block;width:28px;height:1px;margin:0 auto 12px;background:var(--gold);opacity:.55}
+.hidden{display:none!important}
+.shake{animation:shake .45s var(--ease)!important}
+
+@keyframes rise{from{opacity:0;transform:translateY(12px)}}
+@keyframes fade{from{opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes ripple{to{transform:scale(1);opacity:0}}
+@keyframes shake{20%{transform:translateX(-7px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(2px)}}
+
+/* ---------- abertura depois do login: a logo vem ao centro, se desenha e abre o painel ---------- */
+body.leaving .card,body.leaving .note,body.leaving .foot{transition:opacity .35s,transform .45s var(--ease);opacity:0;transform:translateY(18px) scale(.98)}
+body.leaving .brand .txt{transition:opacity .25s;opacity:0}
+body.leaving .brand .mark{transition:opacity .15s .2s;opacity:0}
+#intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;pointer-events:none}
+#intro[hidden]{display:none}
+#intro .veil{position:absolute;inset:0;background:radial-gradient(600px 400px at 50% 45%,#0d1f3d,var(--bg) 70%);opacity:0;transition:opacity .5s}
+#intro.on .veil{opacity:1}
+#intro .stage{position:relative;display:flex;flex-direction:column;align-items:center}
+#intro .logo{position:relative;width:132px;height:132px;display:grid;place-items:center;transform-origin:center;filter:drop-shadow(0 24px 40px rgba(0,0,0,.7))}
+#intro .logo .sym{width:96px;height:132px}
+#intro .trace{fill:none;stroke:var(--gold-ink);stroke-width:12;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:.22 1.3;stroke-dashoffset:.22;filter:drop-shadow(0 0 6px rgba(214,178,94,.9))}
+#intro .ps{transform-box:view-box;transform-origin:68px 110px}
+#intro .ring{position:absolute;left:50%;top:66px;width:132px;height:132px;margin-left:-66px;margin-top:-66px;border-radius:50%;border:1.5px solid var(--gold);opacity:0}
+#intro .glow{position:absolute;left:50%;top:66px;width:320px;height:320px;margin:-160px 0 0 -160px;border-radius:50%;background:radial-gradient(circle,rgba(214,178,94,.28),transparent 65%);opacity:0}
+#intro .name{margin-top:30px;text-align:center;opacity:0}
+#intro .name .wm{font-size:34px;letter-spacing:.08em}
+#intro .name .tag{font-size:11px;margin-top:12px}
+#intro .bar{width:160px;height:2px;margin:26px auto 0;border-radius:2px;background:rgba(160,190,240,.12);overflow:hidden;opacity:0}
+#intro .bar i{display:block;height:100%;width:100%;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:translateX(-100%)}
+
+
+/* botão: preenchido em repouso; no hover/clique fica só a borda dourada, fundo transparente */
+.btn{background:transparent;box-shadow:inset 0 0 0 3em var(--gold);transition:box-shadow .3s var(--ease),color .2s,transform .18s var(--ease)}
+.btn::after{display:none}
+.btn:hover:not(:disabled),.btn:active:not(:disabled),.btn:focus-visible{box-shadow:inset 0 0 0 0 var(--gold);color:var(--gold-ink)}
+.btn:hover:not(:disabled) svg,.btn:active:not(:disabled) svg{stroke:var(--gold-ink)}
+.btn .rpl{background:var(--gold)}
+.mark{perspective:400px;cursor:pointer}.mark svg{transition:transform .8s var(--ease)}
+.brand:hover .mark svg{transform:rotateY(360deg)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-delay:0s!important;transition-duration:.01ms!important}}
+@media (max-width:420px){.card{padding:22px}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="g-silver" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f5f6f8"/><stop offset=".45" stop-color="#cdd0d4"/><stop offset="1" stop-color="#a3a7ad"/></linearGradient><linearGradient id="g-gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4dd9c"/><stop offset=".5" stop-color="#dcbf77"/><stop offset="1" stop-color="#c49b4a"/></linearGradient></defs>
+  <!-- símbolo do guia: escudo aberto nas laterais + pessoa no centro -->
+  <symbol id="b-shield" viewBox="0 0 136 186"><path d="M12 74V34Q12 28 18 26L64 9.5Q68 8 72 9.5L118 26Q124 28 124 34V74"/><path d="M12 91V122C12 145 40 166 68 177C96 166 124 145 124 122V91"/></symbol>
+  <symbol id="b-person" viewBox="0 0 136 186"><circle cx="68.5" cy="80" r="17"/><path d="M37 135V130C37 113 51 103 68.5 103S100 113 100 130V135Q100 137 98 137H39Q37 137 37 135Z"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="4.5"/><path d="m10.7 12.3 9.8-9.8M17 6l3 3M14.5 8.5l2 2"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M10.6 5.1A10 10 0 0 1 12 5c6.4 0 10 7 10 7a13 13 0 0 1-2.4 3.3M6.6 6.6A13.5 13.5 0 0 0 2 12s3.6 7 10 7a9.8 9.8 0 0 0 5.4-1.6M3 3l18 18"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+<div class="box">
+  <div class="brand"><div class="mark" id="mark"><svg class="sym" viewBox="0 0 136 186" aria-hidden="true"><use class="sh-d" href="#b-shield"/><use class="sh" href="#b-shield"/><use class="ps-d" href="#b-person"/><use class="ps" href="#b-person"/></svg></div>
+    <div class="txt"><div class="wm"><span>REAL</span>GUARD</div><div class="tag">Proteção real, em tempo real</div></div></div>
+
+  <form class="card" id="fLogin" autocomplete="on">
+    <h1>Entrar</h1><p class="sub">Use o usuário criado pelo administrador.</p>
+<div class="msg info" id="setup"><svg class="i"><use href="#i-info"/></svg><div>Nenhum administrador cadastrado ainda. No Windows, abra novamente o RealGuard e crie a conta na pré-configuração. Na IA BOX, use <code>python main.py --criar-admin</code>.</div></div>
+    <div class="msg bad" id="err"><svg class="i"><use href="#i-alert"/></svg><div id="errT"></div></div>
+    <label class="field"><span>Usuário</span><div class="ctl"><svg class="i"><use href="#i-user"/></svg><input class="input" id="u" name="username" autocomplete="username" autocapitalize="none" spellcheck="false" required></div></label>
+    <label class="field"><span>Senha</span><div class="ctl has-eye"><svg class="i"><use href="#i-key"/></svg><input class="input" id="p" name="password" type="password" autocomplete="current-password" required>
+      <button type="button" class="eye" data-for="p" title="Mostrar senha" aria-label="Mostrar senha"><svg class="i"><use href="#i-eye"/></svg></button></div></label>
+    <button class="btn" id="go" type="submit"><svg class="i"><use href="#i-lock"/></svg><span class="lbl">Entrar</span><span class="spin"></span></button>
+  </form>
+
+  <form class="card hidden" id="fPass" autocomplete="off">
+    <h1>Crie sua senha</h1><p class="sub">Você entrou com uma senha provisória. Defina uma senha só sua para continuar.</p>
+    <div class="msg bad" id="err2"><svg class="i"><use href="#i-alert"/></svg><div id="err2T"></div></div>
+    <label class="field" id="curWrap"><span>Senha provisória</span><div class="ctl"><input class="input plain" id="cur" type="password" autocomplete="current-password"></div></label>
+    <label class="field"><span>Nova senha <small style="color:var(--muted)">(mínimo 8 caracteres)</small></span><div class="ctl has-eye"><input class="input plain" id="n1" type="password" autocomplete="new-password" required>
+      <button type="button" class="eye" data-for="n1" title="Mostrar senha" aria-label="Mostrar senha"><svg class="i"><use href="#i-eye"/></svg></button></div></label>
+    <label class="field"><span>Repita a nova senha</span><div class="ctl"><input class="input plain" id="n2" type="password" autocomplete="new-password" required></div></label>
+    <button class="btn" id="go2" type="submit"><span class="lbl">Salvar e entrar</span><svg class="i"><use href="#i-arrow"/></svg><span class="spin"></span></button>
+  </form>
+
+  <div class="note" id="httpNote"><svg class="i"><use href="#i-info"/></svg><div>Conexão sem criptografia (http) — adequada só na rede local do laboratório.</div></div>
+  <div class="foot">A IA percebe, o sistema interpreta, o humano valida.</div>
+</div>
+
+<div id="intro" aria-hidden="true" hidden>
+  <div class="veil"></div>
+  <div class="stage">
+    <div class="glow"></div><div class="ring"></div><div class="ring"></div>
+    <div class="logo"><svg class="sym" viewBox="0 0 136 186"><use class="sh-d" href="#b-shield"/><use class="sh" href="#b-shield"/><g class="trace"><path pathLength="1" d="M68 9Q66 8.5 64 9.5L18 26Q12 28 12 34V74"/><path pathLength="1" d="M68 9Q70 8.5 72 9.5L118 26Q124 28 124 34V74"/><path pathLength="1" d="M12 91V122C12 145 40 166 68 177"/><path pathLength="1" d="M124 91V122C124 145 96 166 68 177"/></g><use class="ps-d" href="#b-person"/><use class="ps" href="#b-person"/></svg></div>
+    <div class="name"><div class="wm"><span>REAL</span>GUARD</div><div class="tag">Proteção real, em tempo real</div></div>
+    <div class="bar"><i></i></div>
+  </div>
+</div>
+<script src="/ui/i18n.js"></script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const H={'Content-Type':'application/json','X-RealGuard':'1'};
+async function post(url,body){const r=await fetch(url,{method:'POST',headers:H,body:JSON.stringify(body),credentials:'same-origin'});let b=null;try{b=await r.json()}catch(e){}
+  if(!r.ok)throw new Error((b&&b.detail&&(typeof b.detail==='string'?b.detail:'Dados inválidos.'))||'Erro '+r.status);return b}
+function showErr(id,t){$('#'+id+'T').textContent=t;$('#'+id).classList.add('on');const f=$('#'+id).closest('form');f.classList.remove('shake');void f.offsetWidth;f.classList.add('shake')}
+function busy(b,on){b.disabled=on;b.classList.toggle('busy',on)}
+let temp='';
+function askNewPassword(current){temp=current||'';$('#fLogin').classList.add('hidden');$('#fPass').classList.remove('hidden');
+  $('#curWrap').classList.toggle('hidden',!!temp);(temp?$('#n1'):$('#cur')).focus()}
+
+/* mostrar/ocultar senha */
+$$('.eye').forEach(b=>b.onclick=()=>{const i=$('#'+b.dataset.for),show=i.type==='password';i.type=show?'text':'password';
+  b.querySelector('use').setAttribute('href',show?'#i-eye-off':'#i-eye');b.title=b.ariaLabel=show?'Ocultar senha':'Mostrar senha';i.focus()});
+/* ondinha no clique do botão */
+document.addEventListener('pointerdown',e=>{const b=e.target.closest('.btn');if(!b||b.disabled||calm)return;const r=b.getBoundingClientRect(),d=Math.max(r.width,r.height)*2,s=document.createElement('span');
+  s.className='rpl';s.style.cssText=`width:${d}px;height:${d}px;left:${e.clientX-r.left-d/2}px;top:${e.clientY-r.top-d/2}px`;b.appendChild(s);setTimeout(()=>s.remove(),650)});
+
+/** Abertura: a logo sai do cabeçalho, vai ao centro e cresce, o escudo se desenha, a pessoa acende em dourado,
+ *  anéis se espalham, o nome aparece e o painel abre. O painel continua a transição (sessionStorage rg-intro). */
+async function enter(){
+  try{sessionStorage.setItem('rg-intro','1')}catch(e){}
+  setTimeout(()=>location.replace('/'),5000);   // garantia: se a aba ficar em segundo plano e a animação parar, o painel abre mesmo assim
+  if(calm||!document.body.animate)return location.replace('/');
+  const intro=$('#intro'),logo=intro.querySelector('.logo'),m=$('#mark').getBoundingClientRect();
+  document.body.classList.add('leaving');intro.hidden=false;
+  const L=logo.getBoundingClientRect(),dx=(m.left+m.width/2)-(L.left+L.width/2),dy=(m.top+m.height/2)-(L.top+L.height/2),k=m.width/L.width;
+  const wait=ms=>new Promise(r=>setTimeout(r,ms)),E='cubic-bezier(.2,.8,.2,1)',S='cubic-bezier(.34,1.56,.64,1)';
+  requestAnimationFrame(()=>intro.classList.add('on'));
+  // 1) voo até o centro
+  await logo.animate([{transform:`translate(${dx}px,${dy}px) scale(${k})`},{transform:'translate(0,0) scale(1.08)',offset:.8},{transform:'none'}],{duration:850,easing:E,fill:'both'}).finished;
+  // 2) um brilho dourado percorre o escudo (dos dois lados ao mesmo tempo) e a pessoa pulsa
+  const tr=[...logo.querySelectorAll('.trace path')],person=logo.querySelector('.ps');
+  tr.forEach((p,i)=>p.animate([{strokeDashoffset:.22},{strokeDashoffset:-1.08}],{duration:620,delay:i<2?0:420,easing:'cubic-bezier(.5,0,.5,1)',fill:'both'}));
+  person.animate([{transform:'scale(1)',filter:'none'},{transform:'scale(1.16)',filter:'drop-shadow(0 0 10px rgba(214,178,94,.9))'},{transform:'scale(1)',filter:'drop-shadow(0 0 4px rgba(214,178,94,.5))'}],{duration:620,delay:900,easing:S,fill:'both'});
+  intro.querySelector('.glow').animate([{opacity:0,transform:'scale(.6)'},{opacity:1,transform:'scale(1)'},{opacity:.55,transform:'scale(1.05)'}],{duration:1100,delay:850,easing:E,fill:'both'});
+  intro.querySelectorAll('.ring').forEach((r,i)=>r.animate([{opacity:.9,transform:'scale(1)'},{opacity:0,transform:'scale(2.6)'}],{duration:1100,delay:950+i*260,easing:'cubic-bezier(.1,.6,.3,1)',fill:'both'}));
+  logo.animate([{transform:'scale(1)'},{transform:'scale(1.06)'},{transform:'scale(1)'}],{duration:500,delay:950,easing:S});
+  // 3) nome e slogan, barra de carregamento dourada
+  await wait(1050);
+  intro.querySelector('.name').animate([{opacity:0,transform:'translateY(10px)',letterSpacing:'.3em'},{opacity:1,transform:'none',letterSpacing:'normal'}],{duration:700,easing:E,fill:'both'});
+  intro.querySelector('.bar').animate([{opacity:0},{opacity:1}],{duration:300,delay:250,fill:'both'});
+  intro.querySelector('.bar i').animate([{transform:'translateX(-100%)'},{transform:'translateX(100%)'}],{duration:900,delay:250,easing:'ease-in-out',iterations:2});
+  // pré-carrega o painel enquanto a animação roda
+  fetch('/',{credentials:'same-origin'}).catch(()=>{});
+  await wait(1350);
+  // 4) tudo sobe um pouco e some — o painel assume
+  await intro.querySelector('.stage').animate([{opacity:1,transform:'none'},{opacity:0,transform:'scale(1.04) translateY(-6px)'}],{duration:380,easing:'ease-in',fill:'both'}).finished;
+  location.replace('/')}
+
+$('#fLogin').onsubmit=async e=>{e.preventDefault();$('#err').classList.remove('on');const b=$('#go');busy(b,true);let ok=false;
+  try{const me=await post('/api/auth/login',{username:$('#u').value.trim(),password:$('#p').value});
+    if(me.trocar_senha)askNewPassword($('#p').value);else{ok=true;enter()}}
+  catch(err){showErr('err',err.message);$('#p').select()}finally{if(!ok)busy(b,false)}};
+$('#fPass').onsubmit=async e=>{e.preventDefault();$('#err2').classList.remove('on');
+  if($('#n1').value!==$('#n2').value)return showErr('err2','As senhas não conferem.');
+  const b=$('#go2');busy(b,true);let ok=false;
+  try{await post('/api/auth/password',{current_password:temp||$('#cur').value,new_password:$('#n1').value});ok=true;enter()}
+  catch(err){showErr('err2',err.message)}finally{if(!ok)busy(b,false)}};
+(async()=>{
+  try{const s=await (await fetch('/api/auth/state')).json();$('#setup').classList.toggle('on',!!s.precisa_admin);$('#httpNote').classList.toggle('on',!s.https);}catch(e){}
+  if(new URLSearchParams(location.search).has('trocar')){try{const r=await fetch('/api/auth/me');if(r.ok&&(await r.json()).trocar_senha)return askNewPassword('')}catch(e){}}
+  $('#u').focus()})();
+</script>
+</body>
+</html>
